@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_package = "org.tech.with.orkhan.demo";
+
+message BookRequest {
+    int32 bookId = 1;
+}
+
+message BookResponse {
+    string title = 1;
+    Genre genre = 2;
+    int32 price = 3;
+}
+
+enum Genre {
+    SCI_FI=0;
+    FANTASY=1;
+    POETRY=2;
+}
+
+service BookService {
+    rpc getBook(BookRequest) returns (BookResponse);
+}
